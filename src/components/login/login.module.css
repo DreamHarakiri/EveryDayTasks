@@ -1,0 +1,152 @@
+.body{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+}
+
+.containerPanel{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    max-height: 770px;
+    box-shadow: 4px 5px 124.3px rgba(0, 0, 0, 0.245);
+    border-radius: 15px;
+}
+
+.leftPartPanel{
+    width: 889px;
+    height: 770px;
+    background-color: white;
+    background-image: url('./image/bg.jpg');
+    border-radius: 15px 0px 0px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+}
+
+.rigtPartPanel{
+    width: 583px;
+    height: 770px;
+    background-color: white;
+    border-radius: 0px 15px 15px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+}
+
+.contextContainer{
+    max-width: 350px;
+    margin-inline: auto;
+}
+
+.leftPartPanel h1{
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Noto Sans';
+    color: white;
+    line-height: 60px;
+    margin-block: 0px;
+}
+
+.leftPartPanel p{
+    font-size: 18px;
+    font-weight: normal;
+    color: white;
+    font-family: 'Noto Sans';
+    line-height: 30px;
+    margin-block: 0px;
+}
+
+.leftPartPanel button{
+    padding-block: 15px;
+    padding-inline: 30px;
+    border-radius: 30px;
+    background-color: #0575E6;
+    color: white;
+    border: none;
+    font-family: 'Noto Sans';
+    font-size: 18px;
+    line-height: 18px;
+    text-align: center;
+    margin-block-start: 53px;
+}
+
+.headerStyle h2{
+    font-size: 26px;
+    font-weight: bold;
+    font-family: 'Noto Sans';
+    line-height: 39px;
+    margin-block: 0px;
+}
+
+.headerStyle p{
+    font-size: 18px;
+    font-family: 'Noto Sans';
+    font-weight: 27px;
+    margin-block: 0px;
+}
+
+.inputContextContainer{
+    margin-inline: auto;
+    max-width: 307px;
+}
+
+.inputContextContainer input{
+    border: 1px solid #EEEEEE;
+    border-radius: 30px;
+    width: 307px;
+    height: 60px;
+    padding-left: 26px;
+    
+}
+
+.inputContextContainer input:first-of-type{
+    margin-block-start: 40px;
+}
+
+.inputContextContainer input:first-of-type::before{
+    content: '🔎';
+}
+
+.inputContextContainer input:not(:first-of-type){
+    margin-block-start: 16px;
+}
+
+.inputContextContainer button{
+    margin-block-start: 16px;
+    padding-block: 26px;
+    padding-inline: 18px;
+    border-radius: 30px;
+    color: white;
+    background-color: #0575E6;
+    border: 0;
+    font-size: 14px;
+    line-height: 21px;
+    width: 337px;
+    max-height: 57px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Noto Sans';
+    margin-block-end: 14px;
+}
+
+.recoverLink{
+    font-family: 'Noto Sans';
+    font-size: 14px;
+    color: #333333;
+    text-decoration: none;
+}
+
+.recoverContainer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}

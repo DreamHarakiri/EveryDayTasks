@@ -1,0 +1,48 @@
+.body {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    max-width: 100vw;
+
+  }
+  .contentContainer {
+    width: 100%;
+    background-color: #F9F9F9;
+    min-height: 100%;
+    padding-inline: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 100%;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .contentContainer h1{
+    color: rgb(0, 0, 0);
+    font-family: 'Noto Sans';
+    font-weight: bold;
+  }
+
+
+  .cards{
+    display: flex;
+    gap: 15px;
+    max-width: 100%;
+    flex-wrap: wrap;
+    background-color: transparent;
+    justify-content: flex-start;
+
+  }
+
+  .containerCards{
+    width: 100%;
+    max-width: 100%;
+  }

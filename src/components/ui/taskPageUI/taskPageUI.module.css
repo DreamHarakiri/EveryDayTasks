@@ -1,0 +1,49 @@
+.body {
+  background-color: rgb(249, 249, 249);
+  max-width: 100vw;
+  display: flex;
+}
+
+.containerContent {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.containerCurrentContent {
+  padding-inline: 44px;
+}
+
+.containerContent h1 {
+  font-family: 'Noto Sans';
+  font-size: 32px;
+}
+
+.description {
+  font-family: 'Noto Sans';
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.contentTask {
+  font-family: 'Noto Sans';
+  color: black;
+  font-size: 25px;
+  max-width: 1000px;
+}
+
+.containerContentTask {
+  max-width: 200vw;
+}
+
+pre,
+.containerContentTask pre {
+  white-space: pre-wrap;
+}
+
+.navigateLink,
+a {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: 'Noto Sans';
+}

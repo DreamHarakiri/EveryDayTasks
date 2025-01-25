@@ -1,0 +1,19 @@
+.addButton{
+  border: none;
+  background-color: transparent;
+  font-family: 'Noto Sans';
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  margin-block-start: 42px;
+}
+
+.addButton span{
+  color: rgba(0, 0, 0, 0.5);
+  font-family: 'Noto Sans';
+  font-size: 30px;
+  font-weight: lighter;
+}

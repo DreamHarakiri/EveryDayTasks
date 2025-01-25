@@ -1,0 +1,28 @@
+.button{
+    background-color: transparent;
+    font-family: 'Noto Sans';
+    display: flex;
+    max-width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.text{
+    color: #FF0000;
+    font-size: 16px;
+}
+
+.buttonPlus{
+    width: 24px;
+    height: 24px;
+    background-color: #FF0000;
+    border-radius: 50px;
+    font-size: 18px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

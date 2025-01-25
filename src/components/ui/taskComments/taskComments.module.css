@@ -1,0 +1,28 @@
+.nickname {
+  font-family: 'Noto Sans';
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.textComments {
+  font-family: 'Noto Sans';
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.containerComments {
+  max-width: 500px;
+  border-left: 1px solid rgba(0, 0, 0, 0.206);
+  background-color: white;
+  padding-inline-start: 44px;
+  padding-block-start: 50px;
+  max-height: 100vh;
+  height: 100%;
+}
+
+.containerComponents {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
