@@ -1,18 +1,10 @@
-import {
-  Braces,
-  BracesAsterisk,
-  Kanban,
-  PersonFill,
-  PersonFillExclamation,
-  Sliders2,
-  UiChecks
-} from 'react-bootstrap-icons';
+import { UiChecks } from 'react-bootstrap-icons';
 import styles from './menu.module.css';
 import { NavLink } from 'react-router-dom';
 import { ButtonAddUI } from '../ui/projectUI/projectUI';
 
 export const UserMenu = () => (
-  <>
+  <div className={styles.containerMenu}>
     <ul className={styles.ul}>
       <li>
         <ButtonAddUI />
@@ -31,5 +23,5 @@ export const UserMenu = () => (
         </li>
       </NavLink>
     </ul>
-  </>
+  </div>
 );

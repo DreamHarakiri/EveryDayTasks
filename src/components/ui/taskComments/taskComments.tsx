@@ -34,12 +34,17 @@ export const TaskComments = () => {
                 <>
                     <h1>Комментарии к задаче</h1>
                     <div className={styles.containerComponents}>
-                        {commentsData?.map((comments) => (
-                            <div key={comments.id_comment}>
-                                <p className={styles.nickname}>{comments.user_email}</p>
-                                <p className={styles.textComments}>{comments.text_comment}</p>
-                            </div>
-                        ))}
+                        <div>
+                            {commentsData?.map((comments) => (
+                                <div
+                                    className={styles.commentContainer}
+                                    key={comments.id_comment}
+                                >
+                                    <p className={styles.nickname}>{comments.user_email}</p>
+                                    <p className={styles.textComments}>{comments.text_comment}</p>
+                                </div>
+                            ))}
+                        </div>
                         <InputTaskComments />
                     </div>
                 </>

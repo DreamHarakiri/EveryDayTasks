@@ -93,7 +93,7 @@
     "server": "^1.0.39"
   },
   "scripts": {
-    "start": "webpack serve --mode=development --host 192.168.0.10",
+    "start": "webpack serve --mode=development",
     "startBrowser": "react-scripts start",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",

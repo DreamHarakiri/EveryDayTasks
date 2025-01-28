@@ -1,6 +1,6 @@
 import { SendFill } from 'react-bootstrap-icons';
 import styles from './inputTaskComments.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,7 +18,6 @@ export const InputTaskComments = () => {
 
     const sendCommentData = () => {
         const idComment = nanoid();
-        //console.log(idComment);
 
         dispatch(
             addComment({
@@ -30,6 +29,15 @@ export const InputTaskComments = () => {
         );
     };
 
+    let toggleButton = false;
+
+    useEffect(() => {
+        if (textComment !== null) {
+            textComment?.length < 1 ? (toggleButton = false) : (toggleButton = true);
+        }
+        console.log(toggleButton);
+    }, [textComment]);
+
     return (
         <div className={styles.containerInput}>
             <input
@@ -38,7 +46,7 @@ export const InputTaskComments = () => {
                 onChange={(e) => setTextComment(e.currentTarget.value)}
                 placeholder='Введите комментарий'
             />
-            <button onClick={sendCommentData} type='submit'>
+            <button disabled={!toggleButton} onClick={sendCommentData} type='submit'>
                 <SendFill fontSize={24} />
             </button>
         </div>
