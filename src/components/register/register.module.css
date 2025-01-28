@@ -1,75 +1,152 @@
-.body{
-    background-color: #141718;
-    max-height: 100vh;
+*,
+::before,
+::after {
+    box-sizing: border-box;
 }
 
-.registerPanel{
-    width: 700px;
-    height: 600px;
-    background-color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.registerPanel h1{
-    font-family: 'Noto Sans';
-    text-align: center;
-    color: black;
+.page {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    margin-block: 0;
-}
-
-.registerPanel span{
-    margin-block-start: 15px;
-}
-
-.registerPanel input{
-    max-width: 370px;
     width: 100%;
-    height: 50px;
-    font-family: 'Noto Sans';
-padding-inline: 10px;
-    margin-inline: auto;
-    border-radius: 0px;
-    border: 1px solid rgba(119, 119, 119, 0.517);
-    margin-block: 0;
+    height: 100vh;
+    background-color: white;
 }
 
-.registerPanel input:first-of-type{
-    border-radius: 10px 10px 0 0;
-}
-
-.registerPanel input:last-of-type{
-    border-radius: 0 0 10px 10px;
-}
-
-.registerPanel button{
-    max-width: 370px;
-    width: 100%;
-    height: 50px;
-    margin-inline: auto;
-    margin-block-start: 21.440px;
+.registerPanell {
+    width: 1472px;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 889px 1fr;
+    box-shadow: 4px 5px 124.3px rgba(0, 0, 0, 0.245);
     border-radius: 15px;
-    font-family: 'Noto Sans';
-    border: none;
-    font-weight: 700;
-    background-color: rgb(72, 0, 255);
-    color: white;
-    cursor: pointer;
+    box-shadow: 4px 5px 124.3px rgba(0, 0, 0, 0.245);
 }
 
-.headerStyle p{
-    font-family: 'Noto Sans';
-    color: rgb(35, 35, 35);
-    margin-block-start: 0;
+.authorization_wrapper {
+    background-image: url(../register/images/bg.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+.authorization {
+    margin-inline-start: 239px;
+}
+
+.authorization p {
+    margin: 0;
+    margin-block-start: 10px;
+    margin-block-end: 23px;
+}
+
+.headingAuthorization {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.2;
+    color: aliceblue;
+    margin: 0;
+}
+
+.authorization p {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.5;
+    color: aliceblue;
+}
+
+.authorization button {
+    width: 150px;
+    height: 37px;
+    border-radius: 30px;
+    color: white;
+    background-color: #0575e6;
+    border: 0;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.formRegister {
+    width: 358px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+}
+
+.formRegister p{
+    margin: 0;
+    margin-block-end: 35px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 400;
+    font-style: 18px;
+    line-height: 1.5;
+    color: #333333;
+}
+
+.formRegister h2 {
+    margin-bottom: 3px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
+    font-style: 26px;
+    line-height: 1.5;
+    color: #333333;
+}
+
+.formRegister__borderNone {
+    width: 307px;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 0;
+}
+
+.formRegister input {
+    border: 1px solid #eeeeee;
+    border-radius: 30px;
+    width: 307px;
+    height: 60px;
+    padding-inline: 26px;
+}
+
+.formRegister input:last-child {
+    margin-block-end: 16px;
+}
+
+.formRegister__button {
+    border-radius: 30px;
+    color: white;
+    background-color: #0575e6;
+    border: 0;
+    width: 307px;
+    height: 57px;
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
     text-align: center;
+
+}
+
+.formRegister__borderNone input::placeholder {
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333333;
+    opacity: 30%;
+}
+
+.Username_input {
+    position: relative;
+}
+
+.userNameIcon {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    z-index: 1;
 }
