@@ -14,7 +14,7 @@
   max-width: 500px;
   border-left: 1px solid rgba(0, 0, 0, 0.206);
   background-color: white;
-  padding-inline-start: 44px;
+  padding-inline: 44px;
   padding-block-start: 50px;
   min-height: 100vh;
 }
@@ -24,9 +24,6 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-}
-
-.commentContainer {
 }
 
 .commentContainer div {

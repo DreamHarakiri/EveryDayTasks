@@ -1,23 +1,23 @@
-.button{
-    background-color: #FFFFFF;
-    width: 262px;
-    height: 38px;
-    border-radius: 5px;
-    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.5);
-    border: none;
-    font-size: 15px;
-    font-family: 'Noto Sans';
-    font-weight: normal;
-    color: rgba(0, 0, 0, 0.500);
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    cursor: pointer;
+.button {
+  background-color: #ffffff;
+  width: 262px;
+  height: 38px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.5);
+  border: none;
+  font-size: 15px;
+  font-family: 'Noto Sans';
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
 }
 
-.button span{
-    font-family: 'Noto Sans';
-    font-size: 24px;
-    color: rgba(0, 0, 0, 0.500);
+.button span {
+  font-family: 'Noto Sans';
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.5);
 }

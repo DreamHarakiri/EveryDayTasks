@@ -1,128 +1,123 @@
-.overlayModal{
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-color: rgba(32, 32, 32, 0.181);
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.overlayModal {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(32, 32, 32, 0.181);
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.contentContext{
-    width: 778px;
-    min-height: 920px;
-    background-color: white;
-    border-radius: 5px;
-    position: absolute;
-    padding-inline: 22px;
-
+.contentContext {
+  width: 778px;
+  min-height: 920px;
+  background-color: white;
+  border-radius: 5px;
+  position: absolute;
+  padding-inline: 22px;
 }
 
-.headerContainer{
-    margin-block-start: 22px;
-    font-family: 'Noto Sans';
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 20px;
+.headerContainer {
+  margin-block-start: 22px;
+  font-family: 'Noto Sans';
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
 }
 
-.headerContainer h1{
-    margin-block: 0;
+.headerContainer h1 {
+  margin-block: 0;
 }
 
-.headerContainer button{
-    background-color: transparent;
-    border: none;
-    width: 45px;
-    height: 45px;
+.headerContainer button {
+  background-color: transparent;
+  border: none;
+  width: 45px;
+  height: 45px;
 }
 
-.headerContext{
-    font-family: 'Noto Sans';
-    color: rgba(0, 0, 0, 0.5);
-    font-weight: normal;
-    font-size: 14px;
-    margin-block-start: 38px;
+.headerContext {
+  font-family: 'Noto Sans';
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: normal;
+  font-size: 14px;
+  margin-block-start: 38px;
 }
 
-.largeInput{
-    max-width: 758px;
-    width: 100%;
-    height: 50px;
-    border: 1px solid rgba(0, 0, 0, 0.19);
-    border-radius: 5px;
-    padding-inline-start: 10px;
+.largeInput {
+  max-width: 758px;
+  width: 100%;
+  height: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  padding-inline-start: 10px;
 }
 
+.maxInput {
+  border: 1px solid rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  width: 100%;
+  max-width: 758px;
 
-.maxInput{
-    border: 1px solid rgba(0, 0, 0, 0.19);
-    border-radius: 5px; 
-    width: 100%;
-    max-width: 758px;
-
-    padding-inline-start: 10px;
-    padding-block-start: 10px;
-    min-height: 407px;
-    flex: 1;
-    resize: none;
-    font-family: 'Noto Sans';
-
+  padding-inline-start: 10px;
+  padding-block-start: 10px;
+  min-height: 407px;
+  flex: 1;
+  resize: none;
+  font-family: 'Noto Sans';
 }
 
-
-.colorTasks{
-    display: flex;
-    gap: 16px;
+.colorTasks {
+  display: flex;
+  gap: 16px;
 }
 
-.dateTask input{
-    width: 251px;
-    height: 34px;
-    border: 1px solid rgba(0, 0, 0, 0.19);
-    background-color: transparent;
-    padding-inline: 10px;
-    cursor: pointer;
+.dateTask input {
+  width: 251px;
+  height: 34px;
+  border: 1px solid rgba(0, 0, 0, 0.19);
+  background-color: transparent;
+  padding-inline: 10px;
+  cursor: pointer;
 }
 
-.colorTasks div{
-    width: 34px;
-    height: 34px;
-    border-radius: 50px;
-    background-color: black;
-    cursor: pointer;
+.colorTasks div {
+  width: 34px;
+  height: 34px;
+  border-radius: 50px;
+  background-color: black;
+  cursor: pointer;
 }
 
-
-.containerInput{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+.containerInput {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.paramsContainer{
-    display: flex;
-    justify-content: space-between;
-    margin-block-start: 29px;
+.paramsContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-block-start: 29px;
 }
 
-.createButtonContainer{
-    padding-block: 104px 40px;
+.createButtonContainer {
+  padding-block: 104px 40px;
 }
 
-.createButtonContainer button{
-    width: 234px;
-    height: 41px;
-    background-color: white;
-    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.5);
-    border: none;
-    border-radius: 5px;
-    font-family: 'Noto Sans';
-    font-size: 15px;
-    color: rgba(0, 0, 0, 0.5);
+.createButtonContainer button {
+  width: 234px;
+  height: 41px;
+  background-color: white;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 5px;
+  font-family: 'Noto Sans';
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.5);
 }

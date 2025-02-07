@@ -1,45 +1,45 @@
-.contentContainer{
+.contentContainer {
   width: 100%;
   margin-block: 0;
   padding-block: 0;
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
 }
 
-.body{
+.body {
   display: flex;
 }
 
-html, body, .body{
-  background-color: #F9F9F9;
+html,
+body,
+.body {
+  background-color: #f9f9f9;
 }
 
-.navigateLink a{
+.navigateLink a {
   font-size: 16px;
   color: rgba(0, 0, 0, 0.5);
   font-family: 'Noto Sans';
   margin-inline-start: 44px;
-
 }
 
-button{
+button {
   cursor: pointer;
 }
 
-a{
+a {
   text-decoration: none;
   color: none;
 }
 
-.headerProject{
+.headerProject {
   font-family: 'Noto Sans';
   font-size: 32px;
-  font-weight:bold;
+  font-weight: bold;
   margin-block: 0;
   padding-block: 0;
-
 }
 
-.headerContentPage{
+.headerContentPage {
   justify-content: space-between;
   align-items: center;
   justify-items: center;
@@ -48,10 +48,9 @@ a{
   height: 43px;
   margin-block-start: 37px;
   margin-inline: 44px;
-
 }
 
-.headerContentPage button{
+.headerContentPage button {
   width: 50px;
   height: 50px;
   text-align: center;
@@ -63,51 +62,51 @@ a{
   cursor: pointer;
 }
 
-
-.todoTitle{
+.todoTitle {
   margin-inline-end: 44px;
 }
 
-.todoTitle h2{
+.todoTitle h2 {
   font-size: 24px;
-  font-weight:500;
+  font-weight: 500;
   font-family: 'Noto Sans';
 }
 
-.todoTitleContainer, .headerContentPage{
+.todoTitleContainer,
+.headerContentPage {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;  
+  flex-wrap: nowrap;
   justify-items: center;
 }
 
-.todoTitleContainer{
+.todoTitleContainer {
   height: 100%;
   min-height: 45px;
   margin-inline: 44px;
   margin-block-start: 40px;
 }
 
-.colorLineTitile{
+.colorLineTitile {
   width: 100%;
-  background-color: #F5234B;
+  background-color: #f5234b;
   height: 4px;
   border-radius: 5px;
 }
 
-.todoTitle:not(:first-of-type){
+.todoTitle:not(:first-of-type) {
   margin-inline-start: 40px;
 }
 
-.headerColumn{
+.headerColumn {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 157px;
-  min-width:max-content;
+  min-width: max-content;
 }
 
-.headerColumn button{
+.headerColumn button {
   width: 24px;
   height: 24px;
   border: none;
@@ -115,12 +114,11 @@ a{
   font-size: 24px;
 }
 
-.buttonAddTodo{
+.buttonAddTodo {
   margin-block-start: 15px;
-
 }
 
-.taskContainer{
+.taskContainer {
   max-width: 500px;
   width: 100%;
   height: 63px;
@@ -135,14 +133,12 @@ a{
   padding-block: 5px;
 }
 
-
-
-.contextTaskContainer p{
+.contextTaskContainer p {
   -webkit-line-clamp: 1;
-	line-clamp: 1;
+  line-clamp: 1;
   display: -webkit-box;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   font-size: 14px;
   font-family: 'Noto Sans';
   line-height: 14px;
@@ -153,28 +149,26 @@ a{
   max-width: 400px;
 }
 
-.contextTaskContainer h3{
+.contextTaskContainer h3 {
   -webkit-line-clamp: 1;
-	line-clamp: 1;
+  line-clamp: 1;
   display: -webkit-box;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   font-family: 'Noto Sans';
   font-size: 20px;
   line-height: 20px;
   margin-block: 0px;
   color: black;
-
 }
 
-.flexTask{
+.flexTask {
   display: flex;
   position: relative;
   gap: 15px;
   padding-inline-end: 14px;
   align-items: start;
   max-width: inherit;
-
 }
 
 .taskCheckbox {
@@ -183,20 +177,19 @@ a{
   align-items: baseline;
   z-index: -1;
   opacity: 0;
-  
 }
 
-.taskCheckbox+label::before{
+.taskCheckbox + label::before {
   position: relative;
   top: 0px;
 }
 
-.taskCheckbox+label {
+.taskCheckbox + label {
   display: inline-flex;
   align-items: baseline;
   user-select: none;
 }
-.taskCheckbox+label::before {
+.taskCheckbox + label::before {
   content: '';
   display: inline-block;
   width: 20px;
@@ -215,7 +208,7 @@ a{
   cursor: pointer;
 }
 
-.taskCheckbox:checked+label::before {
+.taskCheckbox:checked + label::before {
   outline: none;
   border-color: transparent;
   background-color: rgba(0, 0, 0, 0.5);
@@ -224,11 +217,9 @@ a{
   background-position: center;
 }
 
-.itemsPosition{
+.itemsPosition {
   display: flex;
   flex-direction: row;
   align-items: start;
   position: relative;
 }
-
-

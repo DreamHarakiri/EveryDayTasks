@@ -1,46 +1,49 @@
-.panelModal{
-    position: absolute;
-    width: 450px;
-    height: 550px;
-    background-color: white;
-    margin: auto;
-    top: 25%; left: 0; bottom: 0; right: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 15px;
-    border-radius: 15px;
+.panelModal {
+  position: absolute;
+  width: 450px;
+  height: 550px;
+  background-color: white;
+  margin: auto;
+  top: 25%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+  border-radius: 15px;
 }
 
-.closeIcon{
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    cursor: pointer;
+.closeIcon {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
 }
 
-.panelModal input{
-    margin-block-start: 50px;
-    height: 30px;
-    border-radius: 5px;
-    border: 1px black solid;
-    font-family: 'Noto Sans';
-    padding-inline-start: 10px;
-    width: 350px;
-    margin-inline: auto;
+.panelModal input {
+  margin-block-start: 50px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px black solid;
+  font-family: 'Noto Sans';
+  padding-inline-start: 10px;
+  width: 350px;
+  margin-inline: auto;
 }
 
-.panelModal button{
-    margin-block-start: 10px;
-    background-color: rgb(111, 0, 255);
-    color: white;
-    border: none;
-    font-family: 'Noto Sans';
-    font-weight: 600;
-    border-radius: 10px;
-    height: 40px;
-    width: 300px;
-    margin-inline: auto;
-    margin-block-start: 30px;
-    cursor: pointer;
+.panelModal button {
+  margin-block-start: 10px;
+  background-color: rgb(111, 0, 255);
+  color: white;
+  border: none;
+  font-family: 'Noto Sans';
+  font-weight: 600;
+  border-radius: 10px;
+  height: 40px;
+  width: 300px;
+  margin-inline: auto;
+  margin-block-start: 30px;
+  cursor: pointer;
 }

@@ -6,7 +6,7 @@ export type TUser = {
 export type TAddMember = {
   email: string;
   project: string;
-  isMember: boolean; // Добавляем isMember сюда, если он должен быть частью объекта
+  isMember: boolean;
 };
 
 export type TGetMemberProject = {

@@ -1,6 +1,6 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit';
 import { addTodoData, getTodoData } from '../Asyncs/todo';
-import { TListData } from 'src/utils/everydayToDo-api';
+import { checkTaskUser } from '../Asyncs/task';
 
 export type TListTodo = {
   id: string;
@@ -12,10 +12,12 @@ export type TListTodo = {
 
 export interface ITodo {
   todo: TListTodo[];
+  isLoading: boolean;
 }
 
 const initialState: ITodo = {
-  todo: []
+  todo: [],
+  isLoading: false
 };
 
 export const todoSlice = createSlice({

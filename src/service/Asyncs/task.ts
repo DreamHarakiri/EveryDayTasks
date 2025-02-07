@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { TListTask } from '../slices/task.slice';
 import {
+  checkTaskPermission,
   createTask,
   getTaskList,
   setChecked
@@ -40,6 +41,25 @@ export const checkedTaskData = createAsyncThunk(
   async (data: ICheckedTask, { rejectWithValue }) => {
     try {
       const response = await setChecked(data);
+      return response;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
+interface ICheckUserTask {
+  user: string;
+  task: string;
+  project: string;
+}
+
+export const checkTaskUser = createAsyncThunk(
+  'task/checkedTaskData',
+  async (data: ICheckUserTask, { rejectWithValue }) => {
+    try {
+      const response = await checkTaskPermission(data);
+
       return response;
     } catch (error) {
       return rejectWithValue(error);

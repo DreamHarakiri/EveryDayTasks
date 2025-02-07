@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addTaskData, getTaskData } from '../Asyncs/task';
+import { addTaskData, checkTaskUser, getTaskData } from '../Asyncs/task';
 
 export type TListTask = {
   id: string;
@@ -32,6 +32,9 @@ export const taskSlice = createSlice({
       if (task) {
         task.checked = !task.checked;
       }
+    },
+    clearStoreTask: (state) => {
+      state.task = [];
     }
   },
   selectors: {
@@ -62,10 +65,19 @@ export const taskSlice = createSlice({
       })
       .addCase(addTaskData.fulfilled, (state, action) => {
         state.task.push(action.meta.arg);
+      })
+      .addCase(checkTaskUser.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(checkTaskUser.fulfilled, (state, action) => {
+        console.log(action.payload);
+
+        state.task.push(...action.payload);
+        state.loading = false;
       });
   }
 });
 
-export const { changeChecked } = taskSlice.actions;
+export const { changeChecked, clearStoreTask } = taskSlice.actions;
 export const { getTaskList, getLoadingTask } = taskSlice.selectors;
 export const { reducer } = taskSlice;

@@ -353,3 +353,21 @@ export const getComments = async (taskId: string): Promise<TComments> => {
 
   return await response.json();
 };
+
+type ICheckTaskPermission = {
+  answer: boolean;
+};
+
+export const checkTaskPermission = async (data: {
+  user: string;
+  task: string;
+  project: string;
+}): Promise<TListTask[]> => {
+  const response = await fetch(`${URL}/api/task/check`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json;charset=utf-8' },
+    body: JSON.stringify(data)
+  });
+
+  return await response.json();
+};

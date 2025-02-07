@@ -6,11 +6,14 @@ import {
 } from '../../../service/slices/task.slice';
 import { AppDispatch } from '../../../service/store';
 import styles from './taskPageUI.module.css';
-import { useEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 import { getProjects } from '../../../service/slices/project.slice';
 import { UserMenu } from '../../../components/menu/menu';
 import { TaskComments } from '../taskComments/taskComments';
 import { Preloader } from '../preloader/preloader';
+import { getUserEmail } from '../../../service/slices/user.slice';
+import { checkTaskUser } from '../../../service/Asyncs/task';
+import { clearStoreTask } from '../../../service/slices/task.slice';
 
 export const TaskPageUI = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -21,12 +24,22 @@ export const TaskPageUI = () => {
   const linkProject = '/projects/' + projectId;
   const getProject = useSelector(getProjects);
   const getLoading = useSelector(getLoadingTask);
+  const userData = useSelector(getUserEmail);
 
   const currentProject = getProject.find(
     (getProject) => getProject.id === projectId
   );
 
   //Докинуть запрос на случай если пользователь перейдет по ссылке
+
+  useEffect(() => {
+    dispatch(clearStoreTask());
+    if (userData !== undefined) {
+      dispatch(
+        checkTaskUser({ user: userData, project: projectId, task: taskId })
+      );
+    }
+  }, []);
 
   return (
     <div className={styles.body}>

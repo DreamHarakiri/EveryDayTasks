@@ -22,8 +22,8 @@ export const commentsSlice = createSlice({
   name: 'comments',
   initialState,
   reducers: {
-    isLoading: (state) => {
-      console.log('заглушка для теста');
+    clearStoreComments: (state) => {
+      state.comments = [];
     }
   },
   extraReducers(builder) {
@@ -70,7 +70,7 @@ export const commentsSlice = createSlice({
 });
 
 export const { reducer } = commentsSlice;
-export const { isLoading } = commentsSlice.actions;
+export const { clearStoreComments } = commentsSlice.actions;
 export const getLoadingComments = (state: { commentsList: TComments }) =>
   state.commentsList.isCommentsloading;
 
