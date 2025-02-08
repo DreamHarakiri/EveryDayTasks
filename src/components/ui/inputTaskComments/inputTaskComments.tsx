@@ -23,7 +23,6 @@ export const InputTaskComments = () => {
     const idComment = `${commentsData.length}-${nanoid()}`;
     console.log(idComment);
 
-
     dispatch(
       addComment({
         id_task: taskId,

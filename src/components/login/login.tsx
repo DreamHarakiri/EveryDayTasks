@@ -6,6 +6,8 @@ import { getLoginData } from '../../service/Asyncs/login';
 import { AppDispatch } from '../../service/store';
 import { Preloader } from '../ui/preloader/preloader';
 import { getLoginLoading } from '../../service/slices/user.slice';
+import { Link } from 'react-router-dom';
+import { RegisterPage } from '../register/register';
 
 export const LoginPage = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -45,9 +47,20 @@ export const LoginPage = () => {
             />
             <button onClick={loginTest}>Продолжить</button>
             <div className={styles.recoverContainer}>
-              <a href='#' className={styles.recoverLink}>
+              <Link
+                className={styles.recoverLink}
+                to={{
+                  pathname: '/recover'
+                }}
+              >
                 Восстановление пароля
-              </a>
+              </Link>
+              <Link
+                className={styles.registerLink}
+                to={{ pathname: '/register' }}
+              >
+                Регистрация
+              </Link>
             </div>
           </div>
         </div>
