@@ -13,9 +13,7 @@ export const MainPage: FC = () => {
   return (
     <>
       <div className={styles.responseWidth}>
-        <div className={styles.menuSetting}>
-          <UserMenu />
-        </div>
+        <UserMenu />
         <div className={styles.contentContainer}>
           <div className={styles.body}>
             <h1 className={styles.headerTask}>Task header</h1>

@@ -12,7 +12,7 @@ export const getRegisterData = createAsyncThunk(
   async (data: RegisterData, thunkAPI) => {
     try {
       const response = await fetch(
-        'http://192.168.0.11:3000/api/auth/register',
+        'http://192.168.0.4:3334/api/auth/register',
         {
           method: 'POST',
           headers: {

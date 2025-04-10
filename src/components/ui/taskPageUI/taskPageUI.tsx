@@ -6,7 +6,7 @@ import {
 } from '../../../service/slices/task.slice';
 import { AppDispatch } from '../../../service/store';
 import styles from './taskPageUI.module.css';
-import { useEffect, useLayoutEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getProjects } from '../../../service/slices/project.slice';
 import { UserMenu } from '../../../components/menu/menu';
 import { TaskComments } from '../taskComments/taskComments';
@@ -14,6 +14,9 @@ import { Preloader } from '../preloader/preloader';
 import { getUserEmail } from '../../../service/slices/user.slice';
 import { checkTaskUser } from '../../../service/Asyncs/task';
 import { clearStoreTask } from '../../../service/slices/task.slice';
+import { getProjectDataCurrent } from '../../../service/Asyncs/project';
+import { Sliders } from 'react-bootstrap-icons';
+import { ModalEditorTask } from '../modalEditorTask/modalEditorTask';
 
 export const TaskPageUI = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -30,7 +33,9 @@ export const TaskPageUI = () => {
     (getProject) => getProject.id === projectId
   );
 
-  //Докинуть запрос на случай если пользователь перейдет по ссылке
+  const [visible, setVisible] = useState<boolean>(false);
+
+
 
   useEffect(() => {
     dispatch(clearStoreTask());
@@ -38,11 +43,19 @@ export const TaskPageUI = () => {
       dispatch(
         checkTaskUser({ user: userData, project: projectId, task: taskId })
       );
+      dispatch(getProjectDataCurrent(projectId));
     }
   }, []);
 
   return (
     <div className={styles.body}>
+      {visible ? (
+        <ModalEditorTask
+          onClose={() => setVisible(!visible)}
+          currentTask={currentTask}
+        />
+      ) : null}
+
       <UserMenu />
       <div className={styles.containerContent}>
         {getLoading ? (
@@ -53,17 +66,33 @@ export const TaskPageUI = () => {
               <Link to='/projects'>проекты</Link> /
               <Link to={linkProject}> {currentProject?.name}</Link>
             </p>
-            <h1>{currentTask?.title}</h1>
+            <div className={styles.headersContent}>
+              <h1>{currentTask?.title}</h1>
+              <div className={styles.containerEditor}>
+                <Sliders
+                  onClick={() => setVisible(!visible)}
+                  style={{ cursor: 'pointer' }}
+                  width={24}
+                  height={24}
+                />
+              </div>
+            </div>
+            {currentTask?.tags ? (
+              <p className={styles.tagsStyles}>{currentTask?.tags}</p>
+            ) : null}
             <p className={styles.description}>Описание задачи</p>
             <pre>
               <p className={styles.contentTask}>{currentTask?.description}</p>
             </pre>
-            {currentTask?.date ?? (
-              <div>
-                <p>Дата завершения задачи:</p>
-                <p>{currentTask?.date}</p>
+            {currentTask?.date ? (
+              <div className={styles.dateStyles}>
+                <div className={styles.lineHeightData} />
+                <div>
+                  <p>Дата завершения задачи:</p>
+                  <p>{currentTask?.date}</p>
+                </div>
               </div>
-            )}
+            ) : null}
           </div>
         )}
         <div className={styles.commentsDiv}>

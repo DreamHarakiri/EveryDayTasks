@@ -1,14 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addTaskData, checkTaskUser, getTaskData } from '../Asyncs/task';
+import {
+  addTaskData,
+  checkTaskUser,
+  editTaskContent,
+  getTaskData
+} from '../Asyncs/task';
 
 export type TListTask = {
   id: string;
   title: string;
   description: string;
   parent: string;
-  color: string;
+  color: string | undefined;
   date: string | null;
   checked: boolean;
+  tags: string[] | undefined;
 };
 
 export interface ITask {
@@ -74,7 +80,61 @@ export const taskSlice = createSlice({
 
         state.task.push(...action.payload);
         state.loading = false;
-      });
+      })
+
+      .addCase(editTaskContent.pending, (state) => {
+        console.log('edit task loading');
+        
+      })
+      .addCase(editTaskContent.rejected, (state, action) => {
+        console.log(action.error);
+        
+      })
+      .addCase(editTaskContent.fulfilled, (state, action) => {
+        console.log('i job it');
+
+        const updateData = action.payload;
+        
+        // Проверка входных данных
+        console.log("Обновляемые данные (updateData):", updateData);
+        if (!updateData || !updateData.id || !updateData.title || !updateData.description || !Array.isArray(updateData.tags)) {
+            console.error("Некорректные данные в payload:", updateData);
+            return;
+        }
+    
+        // Лог текущего состояния задач
+        console.log("Состояние задач до обновления:", state.task);
+    
+        // Убедимся, что task массив
+        if (!Array.isArray(state.task)) {
+            console.error("Ошибка: state.task не является массивом.");
+            return;
+        }
+    
+        // Обновление задач
+        state.task = state.task.map((item) =>
+            item.id === updateData.id
+                ? {
+                    ...item,
+                    title: updateData.title,
+                    description: updateData.description,
+                    tags: updateData.tags
+                }
+                : item
+        );
+    
+        // Лог результата
+        console.log("Состояние задач после обновления:", state.task);
+    
+        // Проверка, обновился ли элемент
+        const updatedItem = state.task.find(item => item.id === updateData.id);
+        if (!updatedItem) {
+            console.error("Ошибка: задача с id", updateData.id, "не была найдена.");
+        } else {
+            console.log("Успешно обновленная задача:", updatedItem);
+        }
+    });
+    
   }
 });
 

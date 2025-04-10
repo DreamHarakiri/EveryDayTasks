@@ -1,10 +1,16 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import { X } from 'react-bootstrap-icons';
 import styles from './modalCreateTaskUI.module.css';
 import { AppDispatch } from '../../../service/store';
 import { useDispatch } from 'react-redux';
 import { addTaskData } from '../../../service/Asyncs/task';
 import { nanoid } from '@reduxjs/toolkit';
+import { ColorPicker, message, notification } from 'antd';
+import { AggregationColor } from 'antd/es/color-picker/color';
+import { AlertList } from '../../../components/alert/alertFilter';
+import { Alert } from '../../../components/alert';
+import { addAlert } from 'src/service/slices/alerts.slice';
+import { showAlert } from '../../../utils/alerts';
 
 interface IModalCreateTaskUI {
   idSection: string;
@@ -15,29 +21,44 @@ export const ModalCreateTaskUI: FC<IModalCreateTaskUI> = ({
   onClose,
   idSection
 }) => {
-  const [title, setTitle] = useState<string>('');
-  const [description, setDescription] = useState<string>('');
+  const [title, setTitle] = useState<string | null>(null);
+  const [description, setDescription] = useState<string | null>(null);
   const [date, setDate] = useState<string>('');
-  const [color, setColor] = useState<string>('#000000');
+  const [tags, setTags] = useState<string[] | undefined>(undefined);
   const dispatch: AppDispatch = useDispatch();
+
+  const [color, setColor] = useState<string | undefined>('#000000');
+
+  const currentColor = (value: AggregationColor | undefined) => {
+    const newColor = value?.toHexString();
+    setColor(newColor);
+  };
 
   const closeWin = () => {
     onClose();
   };
 
   const onSubmitForm = () => {
-    dispatch(
-      addTaskData({
-        id: nanoid(),
-        title: title,
-        description: description,
-        parent: idSection,
-        color: color,
-        date: date,
-        checked: false
-      })
-    );
-    onClose();
+    if (!title || !description) {
+      notification.error({
+        message: 'Не заполнены поля',
+        description: 'Убедитесь, что заполнили поле заголовка и описание задачи'
+      });
+    } else {
+      dispatch(
+        addTaskData({
+          id: nanoid(),
+          title: title,
+          description: description,
+          parent: idSection,
+          color: color,
+          date: date,
+          checked: false,
+          tags: tags
+        })
+      );
+      onClose();
+    }
   };
 
   return (
@@ -70,23 +91,15 @@ export const ModalCreateTaskUI: FC<IModalCreateTaskUI> = ({
         <div className={styles.paramsContainer}>
           <div>
             <p className={styles.headerContext}>Цвет задачи</p>
-            <div className={styles.colorTasks}>
-              <div onClick={() => setColor('#000000')} />
-              <div
-                onClick={() => setColor('#F5234B')}
-                style={{ backgroundColor: '#F5234B' }}
-              />
-              <div
-                onClick={() => setColor('#53EF1B')}
-                style={{ backgroundColor: '#53EF1B' }}
-              />
-              <div
-                onClick={() => setColor('#0077FF')}
-                style={{ backgroundColor: '#0077FF' }}
-              />
-              <div
-                onClick={() => setColor('#B700FF')}
-                style={{ backgroundColor: '#B700FF' }}
+            <div>
+              <ColorPicker
+                defaultFormat='hex'
+                format='hex'
+                disabledFormat
+                size='middle'
+                defaultValue={color}
+                onChange={currentColor}
+                disabledAlpha
               />
             </div>
           </div>
@@ -97,6 +110,11 @@ export const ModalCreateTaskUI: FC<IModalCreateTaskUI> = ({
               type='date'
               name=''
               id=''
+            />
+            <input
+              placeholder='Тег задачи'
+              type='tags'
+              onChange={(e) => setTags([e.target.value])}
             />
           </div>
         </div>

@@ -1,6 +1,6 @@
 .nickname {
   font-family: 'Noto Sans';
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -12,20 +12,40 @@
 
 .containerComments {
   max-width: 500px;
+  width: 300px;
   border-left: 1px solid rgba(0, 0, 0, 0.206);
   background-color: white;
   padding-inline: 44px;
-  padding-block-start: 50px;
-  min-height: 100vh;
+  max-height: 100vh;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.commentsContainer {
+  overflow-y: auto;
+  height: max-content;
+  max-height: calc(100vh - 270px); /* Адаптивная высота */
+  height: 100%;
 }
 
 .containerComponents {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
 }
 
 .commentContainer div {
   padding-block: 0;
+}
+
+.containerComments h1 {
+  margin-block-start: 0;
+  padding-block-start: 50px;
+  font-size: 20px;
+}
+
+.inputCommentPosition {
+  position: absolute;
+  bottom: 0;
+  width: fit-content;
 }

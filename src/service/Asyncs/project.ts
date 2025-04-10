@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   addProject,
   fetchProjects,
+  getCurrentProjectData,
   getMemberInProject,
   removeProject,
   TAddProject,
@@ -68,6 +69,18 @@ export const removeProjectData = createAsyncThunk(
   async (id: string, { rejectWithValue }) => {
     try {
       const response = await removeProject(id);
+      return response;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
+export const getProjectDataCurrent = createAsyncThunk(
+  'project/getProjectData',
+  async (id: string, { rejectWithValue }) => {
+    try {
+      const response = await getCurrentProjectData(id);
       return response;
     } catch (error) {
       return rejectWithValue(error);

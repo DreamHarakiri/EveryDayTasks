@@ -4,13 +4,15 @@ import { reducer as ProjectReducer } from './slices/project.slice';
 import { reducer as UserReducer } from './slices/user.slice';
 import { reducer as TaskReducer } from './slices/task.slice';
 import { reducer as CommentsReducer } from './slices/comments.slice';
+import { reducer as AlertReducer } from './slices/alerts.slice';
 
 export const rootReducer = combineReducers({
   todoList: TodoReducer,
   projectList: ProjectReducer,
   user: UserReducer,
   taskList: TaskReducer,
-  commentsList: CommentsReducer
+  commentsList: CommentsReducer,
+  alertList: AlertReducer
 });
 
 const store = configureStore({

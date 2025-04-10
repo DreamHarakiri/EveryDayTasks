@@ -1,17 +1,22 @@
 .body {
   background-color: rgb(249, 249, 249);
   max-width: 100vw;
+  min-height: 100vh;
+  max-height: max-content;
   display: flex;
 }
 
 .containerContent {
+  max-width: 100%;
   width: 100%;
   display: flex;
-  justify-content: space-between;
 }
 
 .containerCurrentContent {
   padding-inline: 44px;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .containerContent h1 {
@@ -29,11 +34,7 @@
   font-family: 'Noto Sans';
   color: black;
   font-size: 25px;
-  max-width: 1000px;
-}
-
-.containerContentTask {
-  max-width: 200vw;
+  max-width: 100%;
 }
 
 pre,
@@ -46,4 +47,52 @@ a {
   font-size: 16px;
   color: rgba(0, 0, 0, 0.5);
   font-family: 'Noto Sans';
+}
+
+.tagsStyles {
+  font-family: 'Noto Sans';
+  color: rgb(255, 255, 255);
+  padding-inline: 20px;
+  padding-block: 10px;
+  font-weight: bolder;
+  background-color: rgba(255, 0, 0, 0.719);
+  border: 2px solid rgba(255, 0, 0, 0.815);
+  max-width: fit-content;
+  border-radius: 10px;
+}
+
+.headersContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.settingTask {
+  position: absolute;
+  left: 0;
+}
+
+.dateStyles div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.dateStyles p {
+  font-family: 'Noto Sans';
+  font-size: 18px;
+  margin-block-start: 20px;
+}
+
+.lineHeightData {
+  height: 2px;
+  border-radius: 5px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.206);
+}
+
+.containerEditor {
+  width: max-content;
 }

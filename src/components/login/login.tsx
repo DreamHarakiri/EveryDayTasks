@@ -1,13 +1,20 @@
 import { BracesAsterisk } from 'react-bootstrap-icons';
 import styles from './login.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getLoginData } from '../../service/Asyncs/login';
 import { AppDispatch } from '../../service/store';
-import { Preloader } from '../ui/preloader/preloader';
-import { getLoginLoading } from '../../service/slices/user.slice';
+import {
+  authChecked,
+  getAuthUser,
+  getLoginLoading,
+  getUserData,
+  TUser,
+  userSlice
+} from '../../service/slices/user.slice';
 import { Link } from 'react-router-dom';
-import { RegisterPage } from '../register/register';
+import { addAlert } from '../../service/slices/alerts.slice';
+import { showAlert } from '../../utils/alerts';
 
 export const LoginPage = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -15,7 +22,13 @@ export const LoginPage = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
+  const userData = useSelector(getUserData);
+  const isAuth = useSelector(getAuthUser);
+
+  const [getUpdateData, updateData] = useState<TUser | null>(userData);
+
   const isLoading = useSelector(getLoginLoading);
+
   const loginTest = () => {
     dispatch(getLoginData({ email, password }));
   };

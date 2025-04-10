@@ -33,7 +33,7 @@ export const ProjectCardUI: React.FC<IProjectCardUI> = ({
         <p>Владелец: {userEmail === owner ? 'Вы' : owner}</p>
       </div>
       <div className={styles.containerButton}>
-        <a href='#'>Редактровать</a>
+        <a href='#'>Редактировать</a>
         <button onClick={removeProject}>
           <Trash fill='white' size={25} />
         </button>

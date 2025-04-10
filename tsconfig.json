@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "esnext", // Изменён для поддержки современных возможностей
+    "lib": ["dom", "dom.iterable", "esnext"], // Оставлено для работы с современными API браузера
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -9,7 +9,7 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
+    "module": "esnext", // Оставлено для поддержки динамического импорта и современного модульного подхода
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -28,5 +28,9 @@
       "@selectors": ["src/services/selectors"]
     }
   },
-  "include": ["src"]
+  "include": ["src"],
+  
+    "exclude": ["node_modules", "dist", "src/service-worker.js"]
+  
+   // Добавлено исключение сборки и зависимостей
 }

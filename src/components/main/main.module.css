@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding-inline: 10px;
+  min-height: 100vh;
 }
 
 .button {
@@ -40,7 +41,6 @@
 }
 
 .contentContainer {
-  margin-inline-start: 250px;
   width: 100%;
   background-color: #ffffff;
   min-height: 98.5vh;

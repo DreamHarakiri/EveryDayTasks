@@ -3,10 +3,14 @@
   margin-block: 0;
   padding-block: 0;
   background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column; /* Добавлено */
 }
 
 .body {
   display: flex;
+  min-height: 100vh;
+  max-height: max-content;
 }
 
 html,
@@ -14,6 +18,8 @@ body,
 .body {
   background-color: #f9f9f9;
 }
+
+/* Остальные стили без изменений */
 
 .navigateLink a {
   font-size: 16px;
@@ -43,7 +49,6 @@ a {
   justify-content: space-between;
   align-items: center;
   justify-items: center;
-  align-self: center;
   align-content: center;
   height: 43px;
   margin-block-start: 37px;

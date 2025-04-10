@@ -1,0 +1,19 @@
+.listContainer li {
+  list-style: none;
+  padding-inline: 10px;
+  padding-block: 10px;
+  font-size: 16px;
+}
+
+.listContainer {
+  padding-inline: 0;
+  color: black;
+  font-family: 'Noto Sans', sans-serif, Arial, Helvetica, sans-serif;
+}
+
+.listContainer li:hover {
+  background-color: rgba(215, 215, 215, 0.512);
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.1s;
+}

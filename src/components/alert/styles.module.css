@@ -1,0 +1,9 @@
+.boxAlert {
+  position: fixed;
+  max-width: 1200px;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1;
+
+  font-family: 'Noto Sans', sans-serif, Arial, Helvetica, sans-serif;
+}

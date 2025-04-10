@@ -5,9 +5,9 @@ import { useEffect, useRef, useState } from 'react';
 import { AppDispatch } from '../../../service/store';
 import { getMember, getProjectData } from '../../../service/Asyncs/project';
 import {
+  clearProjects,
   getLoadingProject,
-  getProjects,
-  getProjectsMember
+  getProjects
 } from '../../../service/slices/project.slice';
 import { TodoButtonUI } from '../todoButtonUI/todoButtonUI';
 import { getTodoData } from '../../../service/Asyncs/todo';
@@ -46,6 +46,7 @@ export const TodoListUI = () => {
   const getTask = useSelector(getTaskList);
 
   useEffect(() => {
+    dispatch(clearProjects());
     dispatch(removeTodo());
     if (email !== undefined) {
       dispatch(getProjectData(email));
@@ -69,9 +70,7 @@ export const TodoListUI = () => {
     console.log(id);
 
     let currentPoint = checkedBox.current;
-    console.log(currentPoint?.defaultChecked, currentPoint?.checked);
     let invesria = !currentPoint?.defaultChecked;
-    console.log(invesria);
 
     dispatch(checkedTaskData({ id: id, checked: invesria }));
     dispatch(changeChecked({ id }));
@@ -91,7 +90,7 @@ export const TodoListUI = () => {
       ) : (
         <div className={styles.contentContainer}>
           <p className={styles.navigateLink}>
-            <Link to='/projects'>проект</Link>
+            <Link to='/projects'>проекты</Link>
           </p>
           <div className={styles.headerContentPage}>
             <h1 className={styles.headerProject}>{currentProject?.name}</h1>

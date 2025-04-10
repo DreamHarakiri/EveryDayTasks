@@ -1,13 +1,18 @@
-import { createSlice, nanoid } from '@reduxjs/toolkit';
+import { createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
 import { getUserData, TUser, TUserState } from './user.slice';
 import {
   addProjectData,
   getMember,
   getProjectData,
+  getProjectDataCurrent,
   removeProjectData
 } from '../Asyncs/project';
-import { TProjectData } from 'src/utils/everydayToDo-api';
+import {
+  getCurrentProjectData,
+  TCheckProject,
+  TProjectData
+} from '../../utils/everydayToDo-api';
 
 export type TProjectList = {
   id: string;
@@ -36,19 +41,24 @@ export const projectListSlice = createSlice({
     addProject: (state, { payload: item }) => {
       const newProject = { ...item, id: nanoid() };
       state.projects.push(newProject);
+    },
+    clearProjects: (state) => {
+      state.projects = [];
     }
   },
   selectors: {
     getProjects: (state) => state.projects,
     getLoadingProject: (state) => state.isLoadingList,
     getProjectsMember: (state: IProjectList) =>
-      state.projects.map((project) => project.member)
+      state.projects.map((project) => project.member),
+    getLoadingProjects: (state) => state.isLoadingList
   },
   extraReducers: (builder) => {
     builder
       .addCase(addProjectData.pending, (state) => {
         state.isLoadingAdd = true;
       })
+
       .addCase(addProjectData.fulfilled, (state, action) => {
         if (Array.isArray(action.payload)) {
           state.projects.push(...action.payload);
@@ -74,14 +84,22 @@ export const projectListSlice = createSlice({
       .addCase(removeProjectData.fulfilled, (state, { payload: item }) => {
         state.projects = state.projects.filter((i) => i.id !== item.id);
       })
-      .addCase(getMember.fulfilled, (state, { payload: item }) => {
-        //console.log(item);
-      });
+      .addCase(getMember.fulfilled, (state, { payload: item }) => {})
+      .addCase(
+        getProjectDataCurrent.fulfilled,
+        (state, action: PayloadAction<IProjectList>) => {
+          state.projects.push(...action.payload.projects);
+        }
+      );
   }
 });
 
 export const { reducer } = projectListSlice;
-export const { addProject } = projectListSlice.actions;
-export const { getProjects, getProjectsMember, getLoadingProject } =
-  projectListSlice.selectors;
+export const { addProject, clearProjects } = projectListSlice.actions;
+export const {
+  getProjects,
+  getProjectsMember,
+  getLoadingProjects,
+  getLoadingProject
+} = projectListSlice.selectors;
 export const getUserName = (state: { user: TUser }) => state.user?.name;

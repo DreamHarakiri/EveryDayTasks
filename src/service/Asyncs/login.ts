@@ -8,6 +8,7 @@ import {
 import { authChecked, getAuthUser } from '../slices/user.slice';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '../store';
+import { showAlert } from '../../utils/alerts';
 
 export const getUser = createAsyncThunk('user/getUser', async () =>
   getUserApi()
@@ -20,8 +21,11 @@ export const getLoginData = createAsyncThunk(
       const response = await loginUserApi(data);
       setCookie('accessToken', response.accessToken);
       localStorage.setItem('refreshToken', response.refreshToken);
+      showAlert('success', 'Успешная авторизация', 5);
+
       return response.user;
     } catch (error) {
+      showAlert('error', 'Неправильные логин и/или пароль', 5);
       return rejectWithValue(error);
     }
   }

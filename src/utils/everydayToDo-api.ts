@@ -1,13 +1,12 @@
-import { IServerResponse, TGetMemberProject, TUser } from '@utils-types';
+import { IServerResponse, TUser } from '@utils-types';
 import { getCookie, setCookie } from './cookie';
-import { TProjectList } from '../service/slices/project.slice';
-import { error } from 'console';
+import { IProjectList, TProjectList } from '../service/slices/project.slice';
 import { ITodo, TListTodo } from '../service/slices/todo.slice';
 import { ITask, TListTask } from '../service/slices/task.slice';
-import { ICheckedTask } from 'src/service/Asyncs/task';
-import { IComments, TComments } from 'src/service/slices/comments.slice';
+import { ICheckedTask } from '../service/Asyncs/task';
+import { IComments, TComments } from '../service/slices/comments.slice';
 
-const URL = 'http://192.168.0.10:3334';
+const URL = 'http://192.168.0.5:3334';
 
 export type TLoginData = {
   email: string;
@@ -340,7 +339,7 @@ export const addComments = async (data: IComments): Promise<TComments> => {
     headers: { 'Content-Type': 'application/json;charset=utf-8' },
     body: JSON.stringify(data)
   });
-
+  await console.log(response.json);
   return await response.json();
 };
 
@@ -370,4 +369,43 @@ export const checkTaskPermission = async (data: {
   });
 
   return await response.json();
+};
+
+export type TCheckProject = {
+  projectData: TProjectList[];
+};
+
+export const getCurrentProjectData = async (
+  id: string
+): Promise<IProjectList> => {
+  const response = await fetch(`${URL}/api/projects/getProject`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json;charset=utf-8' },
+    body: JSON.stringify({ id: id })
+  });
+
+  return await response.json();
+};
+
+// редактирование таски
+
+
+export const editTaskData = async (data: {  id: string | undefined;
+  title: string | undefined;
+  description: string | undefined;
+  tags: string | undefined;}) => {
+  const response = await fetch(`${URL}/api/task/edit`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json;charset=utf-8' },
+      body: JSON.stringify({ data }),
+  });
+
+  console.log("Статус ответа:", response.status);
+  if (!response.ok) {
+      throw new Error("Ошибка: Сервер вернул неверный статус.");
+  }
+
+  const result = await response.json();
+  console.log("Ответ от сервера:", result);
+  return result;
 };

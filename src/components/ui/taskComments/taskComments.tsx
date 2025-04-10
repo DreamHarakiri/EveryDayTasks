@@ -20,7 +20,6 @@ export const TaskComments = () => {
   const taskId = String(useParams().task);
 
   useEffect(() => {
-    // console.log(commentsData);
     dispatch(clearStoreComments());
     if (typeof taskId === 'string') {
       dispatch(getComment(taskId));
@@ -35,18 +34,26 @@ export const TaskComments = () => {
         <>
           <h1>Комментарии к задаче</h1>
           <div className={styles.containerComponents}>
-            <div>
-              {commentsData?.map((comments) => (
-                <div
-                  className={styles.commentContainer}
-                  key={comments.id_comment}
-                >
-                  <p className={styles.nickname}>{comments.user_email}</p>
-                  <p className={styles.textComments}>{comments.text_comment}</p>
-                </div>
-              ))}
+            <div className={styles.commentsContainer}>
+              {commentsData && commentsData.length > 0 ? (
+                commentsData.map((comments) => (
+                  <div
+                    className={styles.commentContainer}
+                    key={comments.id_comment}
+                  >
+                    <p className={styles.nickname}>{comments.user_email}</p>
+                    <p className={styles.textComments}>
+                      {comments.text_comment}
+                    </p>
+                  </div>
+                ))
+              ) : (
+                <p>Комментариев пока нет</p>
+              )}
             </div>
-            <InputTaskComments />
+            <div className={styles.inputCommentPosition}>
+              <InputTaskComments />
+            </div>
           </div>
         </>
       )}
