@@ -39,10 +39,12 @@ export const UserMenu = () => {
   return (
     <div className={styles.containerMenu}>
       <ul className={styles.ul}>
-        <li className={styles.profileLink}>
-          <div className={styles.avatarCircle} />
-          <p>{userData?.name}</p>
-        </li>
+        <Link to={{ pathname: '/profile' }}>
+          <li className={styles.profileLink}>
+            <div className={styles.avatarCircle} />
+            <p>{userData?.name}</p>
+          </li>
+        </Link>
         <li className={styles.searchList}>
           <input
             placeholder='Поиск проектов'

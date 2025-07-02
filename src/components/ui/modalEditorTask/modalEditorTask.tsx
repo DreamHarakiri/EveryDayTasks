@@ -4,7 +4,6 @@ import { ITask, TListTask } from '../../../service/slices/task.slice';
 import { AppDispatch } from 'src/service/store';
 import { useDispatch } from 'react-redux';
 import { editTaskContent } from '../../../service/Asyncs/task';
-import { notification } from 'antd';
 
 export interface IModalEditorTask {
   currentTask: TListTask | undefined;
@@ -32,8 +31,6 @@ export const ModalEditorTask: FC<IModalEditorTask> = ({
   const dispatch: AppDispatch = useDispatch();
 
   const saveConfig = () => {
-    console.log(headerRef.current?.value, descriptionContext, tagsContext);
-
     if (
       headerRef.current?.value ||
       descriptionRef.current?.value ||
@@ -47,12 +44,10 @@ export const ModalEditorTask: FC<IModalEditorTask> = ({
           tags: tagsRef.current?.value
         })
       );
+      onClose();
     } else {
       console.error('Необходимы данные задачи или контекста для сохранения!');
-      notification.error({
-        message: 'Произошла ошибка, задача не была отредактирована',
-        description: 'Попробуйте повторить редактирование позже'
-      });
+      onClose();
     }
   };
 

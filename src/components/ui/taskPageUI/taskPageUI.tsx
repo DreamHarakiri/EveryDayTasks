@@ -35,8 +35,6 @@ export const TaskPageUI = () => {
 
   const [visible, setVisible] = useState<boolean>(false);
 
-
-
   useEffect(() => {
     dispatch(clearStoreTask());
     if (userData !== undefined) {

@@ -98,11 +98,14 @@ export const editTaskContent = createAsyncThunk(
     try {
       const response = await editTaskData(data);
       console.log('Ошибки нет, данные:', response);
+      showAlert('success', 'Задача успешно обновлена', 5);
+
       return response; // Здесь обязательно нужно возвращать результат
-  } catch (error) {
+    } catch (error) {
       console.log('Ошибка:', error);
-      return rejectWithValue(error || "Неизвестная ошибка");
-  }
-  
+      showAlert('error', 'Произошла ошибка, задача не была отредактирована', 5);
+
+      return rejectWithValue(error || 'Неизвестная ошибка');
+    }
   }
 );

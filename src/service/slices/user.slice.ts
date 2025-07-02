@@ -3,8 +3,10 @@ import { getLoginData, getUser } from '../Asyncs/login';
 import { getRegisterData } from '../Asyncs/register';
 
 export type TUser = {
+  id?: string;
   email: string;
   name: string;
+  status: string;
 };
 
 export type TUserState = {
@@ -83,7 +85,8 @@ export const userSlice = createSlice({
     getLoginLoading: (state) => state.isLoginLoading,
     getAuthUser: (state) => state.isAuth,
     getUserData: (state) => state.user,
-    getUserEmail: (state) => state.user?.email
+    getUserEmail: (state) => state.user?.email,
+    getUserID: (state) => state.user?.id
   }
 });
 
@@ -94,5 +97,6 @@ export const {
   getLoginLoading,
   getAuthUser,
   getUserData,
-  getUserEmail
+  getUserEmail,
+  getUserID
 } = userSlice.selectors;

@@ -6,7 +6,7 @@ import { ITask, TListTask } from '../service/slices/task.slice';
 import { ICheckedTask } from '../service/Asyncs/task';
 import { IComments, TComments } from '../service/slices/comments.slice';
 
-const URL = 'http://192.168.0.5:3334';
+const URL = 'http://192.168.0.3:3334';
 
 export type TLoginData = {
   email: string;
@@ -41,6 +41,8 @@ export const loginUserApi = async (
 
   const responseData = await checkResponse<TAuthResponse>(response);
   if (responseData?.success) {
+    console.log(responseData);
+
     return responseData;
   }
   return Promise.reject(responseData);
@@ -389,23 +391,36 @@ export const getCurrentProjectData = async (
 
 // редактирование таски
 
-
-export const editTaskData = async (data: {  id: string | undefined;
+export const editTaskData = async (data: {
+  id: string | undefined;
   title: string | undefined;
   description: string | undefined;
-  tags: string | undefined;}) => {
+  tags: string | undefined;
+}): Promise<TListTask> => {
+  console.log('edit in fetch progress');
+
   const response = await fetch(`${URL}/api/task/edit`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json;charset=utf-8' },
-      body: JSON.stringify({ data }),
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json;charset=utf-8' },
+    body: JSON.stringify({ data })
   });
 
-  console.log("Статус ответа:", response.status);
-  if (!response.ok) {
-      throw new Error("Ошибка: Сервер вернул неверный статус.");
-  }
+  console.log('Статус ответа:', response.status);
 
   const result = await response.json();
-  console.log("Ответ от сервера:", result);
-  return result;
+  return await result;
+};
+
+export const profileLoad = async (data: {
+  userId: string | number;
+}): Promise<TUser> => {
+  const response = await fetch(`${URL}/api/profile/check`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json;charset=utf-8' },
+    body: JSON.stringify({ data })
+  });
+
+  console.log(response.status);
+
+  return await response.json();
 };

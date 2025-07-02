@@ -22,6 +22,7 @@ export const getLoginData = createAsyncThunk(
       setCookie('accessToken', response.accessToken);
       localStorage.setItem('refreshToken', response.refreshToken);
       showAlert('success', 'Успешная авторизация', 5);
+      console.log(response.user);
 
       return response.user;
     } catch (error) {

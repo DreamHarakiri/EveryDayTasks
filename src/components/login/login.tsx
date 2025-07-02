@@ -9,6 +9,7 @@ import {
   getAuthUser,
   getLoginLoading,
   getUserData,
+  getUserID,
   TUser,
   userSlice
 } from '../../service/slices/user.slice';
@@ -23,6 +24,7 @@ export const LoginPage = () => {
   const [password, setPassword] = useState<string>('');
 
   const userData = useSelector(getUserData);
+  const userID = useSelector(getUserID);
   const isAuth = useSelector(getAuthUser);
 
   const [getUpdateData, updateData] = useState<TUser | null>(userData);

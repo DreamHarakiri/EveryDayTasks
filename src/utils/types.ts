@@ -1,6 +1,8 @@
 export type TUser = {
+  id?: string;
   email: string;
   name: string;
+  status: string;
 };
 
 export type TAddMember = {
