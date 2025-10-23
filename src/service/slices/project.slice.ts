@@ -51,7 +51,9 @@ export const projectListSlice = createSlice({
     getLoadingProject: (state) => state.isLoadingList,
     getProjectsMember: (state: IProjectList) =>
       state.projects.map((project) => project.member),
-    getLoadingProjects: (state) => state.isLoadingList
+    getLoadingProjects: (state) => state.isLoadingList,
+    getCurrentProject: (state, id) =>
+      state.projects.find((project) => project.id === id)
   },
   extraReducers: (builder) => {
     builder
@@ -80,8 +82,10 @@ export const projectListSlice = createSlice({
       })
       .addCase(removeProjectData.pending, (state) => {
         state.isLoadingList = true;
+        console.log('removeProjectData.pending');
       })
       .addCase(removeProjectData.fulfilled, (state, { payload: item }) => {
+        state.isLoadingList = false;
         state.projects = state.projects.filter((i) => i.id !== item.id);
       })
       .addCase(getMember.fulfilled, (state, { payload: item }) => {})
@@ -100,6 +104,7 @@ export const {
   getProjects,
   getProjectsMember,
   getLoadingProjects,
-  getLoadingProject
+  getLoadingProject,
+  getCurrentProject
 } = projectListSlice.selectors;
 export const getUserName = (state: { user: TUser }) => state.user?.name;

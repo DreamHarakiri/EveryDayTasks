@@ -3,6 +3,7 @@
   flex-direction: row;
   min-height: 100vh;
   max-width: 100vw;
+  overflow-x: visible;
 }
 .contentContainer {
   width: 100%;
@@ -42,4 +43,10 @@
 .containerCards {
   width: 100%;
   max-width: 100%;
+}
+
+.editProject {
+  background-color: transparent;
+  width: fit-content;
+  border: none;
 }

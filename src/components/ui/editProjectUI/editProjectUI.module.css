@@ -1,0 +1,81 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.containerEdit {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  width: 700px;
+  box-sizing: border-box;
+  z-index: 1000;
+  margin-inline: auto;
+}
+
+.containerHeader {
+  display: flex;
+  justify-content: space-between !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  cursor: default !important;
+}
+
+.closeButton {
+  background: none;
+  color: gray;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton:hover {
+  color: black;
+  background-color: transparent !important;
+}
+
+.input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.button {
+  padding: 10px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}

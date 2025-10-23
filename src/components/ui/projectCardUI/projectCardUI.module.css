@@ -58,3 +58,11 @@
 .link {
   text-decoration: none;
 }
+
+.editProject {
+  background-color: transparent !important;
+  width: fit-content;
+  border: none;
+  font-size: 14px;
+  color: gray;
+}

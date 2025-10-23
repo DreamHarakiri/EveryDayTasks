@@ -6,7 +6,7 @@ import { ITask, TListTask } from '../service/slices/task.slice';
 import { ICheckedTask } from '../service/Asyncs/task';
 import { IComments, TComments } from '../service/slices/comments.slice';
 
-const URL = 'http://192.168.0.3:3334';
+const URL = 'http://192.168.1.67:3334';
 
 export type TLoginData = {
   email: string;
@@ -29,8 +29,6 @@ const checkResponse = <T>(res: Response): Promise<T> =>
 export const loginUserApi = async (
   data: TLoginData
 ): Promise<TAuthResponse> => {
-  //console.log('url' + URL);
-
   const response = await fetch(`${URL}/api/auth/login`, {
     method: 'POST',
     headers: {
@@ -421,6 +419,18 @@ export const profileLoad = async (data: {
   });
 
   console.log(response.status);
+
+  return await response.json();
+};
+
+export const changeProject = async (
+  data: TProjectList
+): Promise<TProjectList> => {
+  const response = await fetch(`${URL}/api/projects/changeProject`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json;charset=utf-8' },
+    body: JSON.stringify({ data })
+  });
 
   return await response.json();
 };
